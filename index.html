@@ -7,6 +7,7 @@
     <title>Battles of Normandy - a solitaire game</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="page">
@@ -18,8 +19,8 @@
             <img class="draggable box" src="/img/unit_brit_lmg.png" alt="British LMG">
             <img class="draggable box" src="/img/unit_brit_piat.png" alt="British PIAT">
             <img class="draggable box" src="/img/unit_brit_sniper.png" alt="British Sniper">
-            <img class="draggable box" src="/img/unit_brit_lmg.png" alt="British LMG">
             <img class="draggable box" src="/img/cover.png" alt="Cover">
+            <img class="draggable activated" src="/img/activated.png" alt="Turn">
             <img class="draggable-turn box" src="/img/turn.png" alt="Turn">
         </div>
         <div>
@@ -30,8 +31,9 @@
         </div>
     </div>
     <div>
-        <button id="save">Save game</button>
-        <button id="load">Load game</button>
+        <button id="save" class="button-5" role="button">Save game</button>
+        <button id="load" class="button-9" role="button">Load game</button>
+        <button id="clear-markers" class="button-45" role="button">Clear 'activated' markers</button>
     </div>
     
     <script src="index.js"></script>

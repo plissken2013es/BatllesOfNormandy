@@ -3,12 +3,12 @@ function startDraggable() {
         helper: "clone",
         cursor: "move",
         stop: function(event, ui) {
-            let kk = $(ui.helper)
+            let clone = $(ui.helper)
                 .clone(true)
                 .removeClass('box draggable ui-draggable ui-draggable-dragging')
                 .addClass('box-clone')
                 .appendTo('#page');
-            kk.draggable({
+            clone.draggable({
                 distance: 50,
                 helper: "clone",
                 cursor: "move",
@@ -36,10 +36,21 @@ $(function() {
  });
 
 $("#save").click(function() {
-	localStorage.setItem('saved_game', $("#page").html());
+    if (confirm('Sure to save (and overwrite)?')) {        
+	    localStorage.setItem('saved_game', $("#page").html());
+    }
 });
 
 $("#load").click(function() {
-    $("#page").html(localStorage.getItem('saved_game'));
-    startDraggable();
+    if (localStorage.getItem('saved_game') == null) return;
+    if (confirm('Sure to load (and lost non saved changes)?')) { 
+        $("#page").html(localStorage.getItem('saved_game'));
+        startDraggable();
+    }
+});
+
+$("#clear-markers").click(function() {
+    if (confirm('Sure?')) { 
+        $(".box-clone").filter(".activated").remove();
+    }
 });
