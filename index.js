@@ -54,3 +54,10 @@ $("#clear-markers").click(function() {
         $(".box-clone").filter(".activated").remove();
     }
 });
+
+$(".map-button").click(function() {
+    if (confirm('Are you sure to change map?')) { 
+        console.log(this["id"]);
+        $(".map").find("img").attr("src", "/img/" + this["id"] + ".png");
+    }
+});
